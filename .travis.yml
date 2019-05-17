@@ -1,0 +1,9 @@
+language: python
+install:
+  - pip install rstcheck
+  - pip install bashate
+script:
+  - rstcheck README.rst
+  - bashate reload
+  - bashate fog_setup.sh
+
