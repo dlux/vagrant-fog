@@ -32,7 +32,7 @@ $_INSTALLER_CMD bc curl gcc gcc-c++ genisoimage gzip httpd lftp m4 make mtools
 $_INSTALLER_CMD mod_ssl mysql mysql-server net-tools nfs-utils php php-cli
 $_INSTALLER_CMD php-bcmath php-common php-fpm php-gd php-ldap php-process
 $_INSTALLER_CMD php-mbstring php-mysqlnd syslinux tftp-server xinetd
-$_INSTALLER_CMD unzip vsftpd wget xz-devel vim tar firewalld
+$_INSTALLER_CMD unzip vsftpd wget xz-devel vim tar firewalld dhcp
 
 WriteLog 'Setting up firewalld'
 systemctl start firewalld
