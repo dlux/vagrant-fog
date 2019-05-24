@@ -19,6 +19,9 @@ Setup - fog_min_setup.sh:
 * No language package installation
 * Installs apache, mysql, php, tftp
 
+Setup - fog_full_setup.sh:
+
+* keep SELinux, configure firewalld, dhcp, and dns
 
 FOG is a Linux-based, open source computer imaging solution for various versions of Windows, Linux, and MacOS.
 It ties together few open source tools with a PHP-based web interface and TFTP and PXE.
