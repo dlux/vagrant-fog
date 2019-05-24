@@ -14,7 +14,7 @@ Vagrant.configure(2) do |config|
   config.vm.network :forwarded_port, guest: 80, host: 8090
   config.vm.box = 'centos/7'
   config.vm.provision 'shell' do |s|
-    s.path = 'fog_setup.sh'
+    s.path = 'fog_setup'
     s.args = ENV['http_proxy']
   end
 
