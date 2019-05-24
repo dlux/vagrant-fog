@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Script installs Fog clone image provisioner on Linux box
+# No firewalld, no dhcp, or dns - just tftp, mysql, and apache
 # OPTIONAL - Pass proxy as parameter on position $1
 
 # Uncomment below line to debug
@@ -36,7 +37,7 @@ $_INSTALLER_CMD bc curl gcc gcc-c++ genisoimage gzip httpd lftp m4 make
 $_INSTALLER_CMD mod_ssl mtools mysql mysql-server net-tools nfs-utils php
 $_INSTALLER_CMD php-bcmath php-cli php-common php-fpm php-gd php-ldap tar
 $_INSTALLER_CMD php-mbstring php-mysqlnd php-process syslinux tftp-server
-$_INSTALLER_CMD unzip vsftpd wget xinetd xz-devel vim 
+$_INSTALLER_CMD unzip vsftpd wget xinetd xz-devel vim
 
 WriteLog "Processing tarball to install fog $FOG_TAR_RELEASE.tar.gz"
 curl -OL "$FOG_DOWNLOAD_URL/$FOG_RELEASE.tar.gz"
@@ -45,5 +46,4 @@ tar -xzvf $FOG_RELEASE.tar.gz
 rm -f $FOG_RELEASE.tar.gz
 pushd "fogproject-$FOG_RELEASE/bin"
 printf "Y\n1\nN\nN\nN\nn\nn\nN\nN\nY\n" | ./installfog.sh
-
 
