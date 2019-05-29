@@ -38,25 +38,25 @@ WriteLog 'Setting up firewalld'
 systemctl start firewalld
 systemctl enable firewalld
 
-for service in http https tftp ftp mysql nfs mountd rpc-bind proxy-dhcp samba
-do
-    firewall-cmd --permanent --zone=public --add-service=$service
+for svr in http https tftp ftp mysql nfs mountd rpc-bind proxy-dhcp samba; do
+    firewall-cmd --permanent --zone=public --add-service=$svr
 done
 
-WriteLog "Opening UDP port 49152 through 65532 in case of multicast" 
+WriteLog "Opening UDP port 49152 through 65532 in case of multicast"
 firewall-cmd --permanent --add-port=49152-65532/udp
 WriteLog "Allow IGMP traffic for multicast"
-firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p igmp -j ACCEPT
+firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p igmpi \
+    -j ACCEPT
 systemctl restart firewalld.service
 
-for service in dhcp dns
-do
+for service in dhcp dns; do
     firewall-cmd --permanent --zone=public --add-service=$service
 done
 firewall-cmd --reload
 
 WriteLog 'Set selinux as permissive'
-sed -i.bak 's/^.*\SELINUX=enforcing\b.*$/SELINUX=permissive/' /etc/selinux/config
+sefile='/etc/selinux/config'
+sed -i.bak 's/^.*\SELINUX=enforcing\b.*$/SELINUX=permissive/' $sefile
 setenforce 0
 
 WriteLog "Processing tarball to install fog $FOG_TAR_RELEASE.tar.gz"
