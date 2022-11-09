@@ -8,7 +8,7 @@
 # set -o xtrace
 
 pushd /opt
-FOG_RELEASE='1.5.6'
+FOG_RELEASE='1.5.9'
 FOG_DOWNLOAD_URL='https://github.com/FOGProject/fogproject/archive'
 DB_PASS='secure9'
 
